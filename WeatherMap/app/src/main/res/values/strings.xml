@@ -1,3 +1,30 @@
 <resources>
+
     <string name="app_name">Weather Map</string>
+
+    <!-- Connection Status -->
+    <string name="connect_000"></string>
+    <string name="connect_001"></string>
+    <string name="connect_002"></string>
+    <string name="connect_003"></string>
+
+    <!-- Loading Messages -->
+    <string-array name="loading_messages">
+        <item>Observing the clouds...</item>
+        <item>Looking for the umbrella...</item>
+        <item>Applying sunscreen lotion...</item>
+        <item>Putting on the raincoat...</item>
+        <item>Warming up the mittens...</item>
+    </string-array>
+
+    <!-- Today's Weather Fragment -->
+
+    <!-- 5-Days Weather Fragment -->
+
+    <!-- Options Fragment -->
+    <string name="options_000">Notifications</string>
+    <string name="options_001"></string>
+    <string name="options_002"></string>
+    <string name="options_003"></string>
+
 </resources>
