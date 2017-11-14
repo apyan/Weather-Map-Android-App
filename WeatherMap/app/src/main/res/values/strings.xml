@@ -1,12 +1,21 @@
 <resources>
 
     <string name="app_name">Weather Map</string>
+    <string name="user_file">user-data.json</string>
+
+    <!-- OpenWeatherMap API Key -->
+    <string name="weathermap_owm_api_key">0bd12493a774213e924f4bc670f98f39</string>
 
     <!-- Connection Status -->
     <string name="connect_000"></string>
     <string name="connect_001"></string>
     <string name="connect_002"></string>
     <string name="connect_003"></string>
+
+    <!-- Menu Tab Labels -->
+    <string name="tab_000">Today</string>
+    <string name="tab_001">5 Days</string>
+    <string name="tab_002">Options</string>
 
     <!-- Loading Messages -->
     <string-array name="loading_messages">
