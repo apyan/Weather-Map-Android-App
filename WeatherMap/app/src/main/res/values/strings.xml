@@ -1,16 +1,18 @@
 <resources>
 
     <string name="app_name">Weather Map</string>
-    <string name="user_file">user-data.json</string>
+
+    <!-- Splash Screen -->
+    <string name="app_title">Weather Map</string>
+    <string name="app_version">US Region Version</string>
+    <string name="app_prompt">Tap to Proceed</string>
+    <string name="user_file">user-data-wm.json</string>
 
     <!-- OpenWeatherMap API Key -->
     <string name="weathermap_owm_api_key">0bd12493a774213e924f4bc670f98f39</string>
 
     <!-- Connection Status -->
-    <string name="connect_000"></string>
-    <string name="connect_001"></string>
-    <string name="connect_002"></string>
-    <string name="connect_003"></string>
+    <string name="connect_000">Connection not found.\nPlease try again.</string>
 
     <!-- Menu Tab Labels -->
     <string name="tab_000">Today</string>
@@ -18,6 +20,7 @@
     <string name="tab_002">Options</string>
 
     <!-- Loading Messages -->
+    <string name="loading_000">Loading, please wait...</string>
     <string-array name="loading_messages">
         <item>Observing the clouds...</item>
         <item>Looking for the umbrella...</item>
@@ -27,13 +30,25 @@
     </string-array>
 
     <!-- Today's Weather Fragment -->
+    <string name="today_000">Enter a US town or city.</string>
+    <string name="today_001">Please input a proper US\ntown or city name.</string>
+    <string name="today_002">Search</string>
 
     <!-- 5-Days Weather Fragment -->
 
     <!-- Options Fragment -->
-    <string name="options_000">Notifications</string>
-    <string name="options_001"></string>
+    <string name="options_000">Title Screen</string>
+    <string name="options_001">Notifications</string>
     <string name="options_002"></string>
     <string name="options_003"></string>
+
+    <string name="options_on">ON</string>
+    <string name="options_off">OFF</string>
+
+    <!-- Credits -->
+    <string name="credits_000">Weather Map - US Region Version</string>
+    <string name="credits_001">Developer: Alvin Yan</string>
+    <string name="credits_002">Powered by &#169; OpenWeatherMap Services.</string>
+    <string name="credits_003">All Rights Reserved.</string>
 
 </resources>

@@ -4,10 +4,17 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * This class is used for writing and saving data
@@ -21,9 +28,9 @@ public class AppJSONStorage {
     public String filename;
 
     // File Data Variables
-    public String lastCityName = "none";
+    public String lastCitySearched = "";
     public int lastCityID = 0;
-    public boolean notifyOn = false;
+    public boolean titleScreenOn = true;
 
     // Constructor
     // Ex. "user-data.json"
@@ -52,7 +59,39 @@ public class AppJSONStorage {
 
     // Read data from the file
     public void dataRead() {
+        // Load data
+        String jsonString = loadData();
 
+        try {
+            // Obtain as JSON object
+            JSONObject jsonObject = new JSONObject(jsonString);
+            lastCitySearched = jsonObject.getString("lastCitySearched");
+            lastCityID = jsonObject.getInt("lastCityID");
+            titleScreenOn = jsonObject.getBoolean("titleScreenOn");
+
+        } catch (final JSONException e) {
+            e.getMessage();
+        }
+
+    }
+
+    // Load data from the file as a String
+    public String loadData() {
+        // Variables
+        String line;
+        String combined = "";
+        BufferedReader in = null;
+        try {
+            in = new BufferedReader(new FileReader(new File(context.getFilesDir(), filename)));
+            // Read every line from the file
+            while ((line = in.readLine()) != null) {
+                // Reading data
+                combined = combined + line;
+            }
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        }
+        return combined;
     }
 
     // Write data to the file
@@ -62,10 +101,13 @@ public class AppJSONStorage {
 
         // Begin the JSON file construction
         // For the last city name sought
-        writer = writer + "\"lastCityName\" : " + lastCityName;
+        writer = writer + "\"lastCitySearched\" : " + lastCitySearched;
 
         // For the last city ID sought
         writer = writer + ", \"lastCityID\" : " + lastCityID;
+
+        // For the Title Screen option
+        writer = writer + ", \"titleScreenOn\" : " + titleScreenOn;
 
         // End the JSON file construction
         writer = writer + "}";

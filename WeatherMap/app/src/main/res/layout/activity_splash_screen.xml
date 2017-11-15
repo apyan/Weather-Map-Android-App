@@ -1,40 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:onClick="onTabScreenProceed"
     tools:context="com.example.weathermap.weathermap.SplashScreen">
 
+    <!-- The Title Banner -->
     <LinearLayout
         android:id="@+id/linear_000"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="175dp"
+        android:gravity="center|top"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_title"
+            android:textSize="35sp"/>
+
+        <TextView
+            android:id="@+id/version_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_version"
+            android:textSize="15sp"/>
 
     </LinearLayout>
 
+    <!-- The Prompting Banner -->
     <LinearLayout
         android:id="@+id/linear_001"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
+        android:gravity="center|bottom"
         android:orientation="vertical">
 
-        <ProgressBar
-            android:id="@+id/progress_000"
-            android:layout_width="50dp"
-            android:layout_height="50dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linear_002"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:orientation="vertical">
-
+        <TextView
+            android:id="@+id/prompt_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_prompt"
+            android:textSize="23sp"/>
 
     </LinearLayout>
 
