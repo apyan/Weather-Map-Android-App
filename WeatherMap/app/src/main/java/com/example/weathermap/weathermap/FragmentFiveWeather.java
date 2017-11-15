@@ -42,6 +42,11 @@ public class FragmentFiveWeather extends Fragment implements View.OnClickListene
         // Button onClick Inputs
         button_00.setOnClickListener(this);
 
+        // Checks for the last city viewed
+        if(appJSONStorage.lastCityID == 0) {
+
+        }
+
         return v;
     }
 

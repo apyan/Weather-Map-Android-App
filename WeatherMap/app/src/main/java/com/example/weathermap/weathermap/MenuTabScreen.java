@@ -1,9 +1,13 @@
 package com.example.weathermap.weathermap;
 
+import android.app.Activity;
+import android.content.Context;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 public class MenuTabScreen extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
 
@@ -11,6 +15,7 @@ public class MenuTabScreen extends AppCompatActivity implements TabLayout.OnTabS
     public TabLayout tabLayout;
     public ViewPager viewPager;
     public AdapterTabPager tabPagerAdapter;
+    public InputMethodManager inputMethodManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,12 @@ public class MenuTabScreen extends AppCompatActivity implements TabLayout.OnTabS
 
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
+
+        // For hiding keyboard to prevent UI confusion
+        inputMethodManager = (InputMethodManager)this.getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), 0);
+
+        // Upon changing tabs
         viewPager.setCurrentItem(tab.getPosition());
     }
 

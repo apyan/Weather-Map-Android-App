@@ -24,7 +24,7 @@ import java.io.InputStreamReader;
 public class AppJSONStorage {
 
     // Variables
-    Context context;
+    public Context context;
     public String filename;
 
     // File Data Variables
@@ -101,13 +101,13 @@ public class AppJSONStorage {
 
         // Begin the JSON file construction
         // For the last city name sought
-        writer = writer + "\"lastCitySearched\" : " + lastCitySearched;
+        writer = writer + "\r\n\"lastCitySearched\" : \"" + lastCitySearched + "\"";
 
         // For the last city ID sought
-        writer = writer + ", \"lastCityID\" : " + lastCityID;
+        writer = writer + ",\r\n\"lastCityID\" : " + lastCityID;
 
         // For the Title Screen option
-        writer = writer + ", \"titleScreenOn\" : " + titleScreenOn;
+        writer = writer + ",\r\n\"titleScreenOn\" : " + titleScreenOn;
 
         // End the JSON file construction
         writer = writer + "}";
@@ -117,7 +117,6 @@ public class AppJSONStorage {
             out.write(writer);
             out.close();
         } catch (IOException e) {
-            //Logger.logError(TAG, e);
         }
     }
 

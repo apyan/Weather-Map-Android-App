@@ -17,18 +17,20 @@
             android:paddingRight="15dp"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:hint="@string/today_000"
+            android:hint="@string/searchBar_000"
             android:maxLength="20"
             android:drawableTint="#FFFFFF"
             android:textColorHint="#FFFFFF"
-            android:layout_weight="1"/>
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:ems="10"/>
 
         <Button
             android:id="@+id/search_button"
             android:layout_width="85dp"
             android:layout_height="50dp"
             android:textSize="15sp"
-            android:text="@string/today_002"/>
+            android:text="@string/searchBar_002"/>
 
     </LinearLayout>
 
@@ -42,6 +44,89 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Today's Weather Forecast Data Panel -->
+            <LinearLayout
+                android:id="@+id/data_linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+            </LinearLayout>
+
+            <!-- Loading Screen Panel -->
+            <LinearLayout
+                android:id="@+id/loading_linear"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ProgressBar
+                    android:id="@+id/loading_progress"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp" />
+
+                <TextView
+                    android:id="@+id/loading_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:textSize="18sp"
+                    android:text="@string/loading_000"/>
+
+            </LinearLayout>
+
+            <!-- Connection Error Panel -->
+            <LinearLayout
+                android:id="@+id/connectError_linear"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/connectError_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:text="@string/connect_000"/>
+
+                <TextView
+                    android:id="@+id/connectError_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
+                    android:text="@string/connect_001"/>
+
+            </LinearLayout>
+
+            <!-- Search Error Panel -->
+            <LinearLayout
+                android:id="@+id/searchError_linear"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/searchError_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:text="@string/search_000"/>
+
+                <TextView
+                    android:id="@+id/searchError_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
+                    android:text="@string/search_001"/>
+
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

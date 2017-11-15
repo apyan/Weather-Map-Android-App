@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.weathermap.weathermap.AppFunctions.AppJSONStorage;
 
@@ -20,6 +22,7 @@ public class FragmentOptions extends Fragment {
     public AppJSONStorage appJSONStorage;
 
     public Switch switch_00;
+    public TextView text_00;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,12 +35,16 @@ public class FragmentOptions extends Fragment {
 
         // Set up UI elements
         switch_00 = (Switch) v.findViewById(R.id.optionSwitch_00);
+        text_00 = (TextView) v.findViewById(R.id.description_00);
 
         // Set up switch_00: Title Screen preference
+        // and change the description text
         if(appJSONStorage.titleScreenOn) {
             switch_00.setChecked(true);
+            text_00.setText(R.string.options_000_on);
         } else {
             switch_00.setChecked(false);
+            text_00.setText(R.string.options_000_off);
         }
 
         // Upon activity switch_00: Title Screen preference
@@ -47,6 +54,13 @@ public class FragmentOptions extends Fragment {
                 // Saves user's preference
                 appJSONStorage.titleScreenOn = boolChecked;
                 appJSONStorage.dataWrite();
+
+                // Change the description text
+                if(boolChecked) {
+                    text_00.setText(R.string.options_000_on);
+                } else {
+                    text_00.setText(R.string.options_000_off);
+                }
             }
         });
 

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 
 import com.example.weathermap.weathermap.AppFunctions.AppConnect;
@@ -25,6 +26,7 @@ public class FragmentTodayWeather extends Fragment implements View.OnClickListen
 
     public Button button_00;
     public EditText edit_00;
+    public LinearLayout linear_00, linear_01, linear_02, linear_03;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,6 +44,11 @@ public class FragmentTodayWeather extends Fragment implements View.OnClickListen
 
         // Button onClick Inputs
         button_00.setOnClickListener(this);
+
+        // Checks for the last city viewed
+        if(!appJSONStorage.lastCitySearched.equals("")) {
+
+        }
 
         return v;
     }

@@ -11,9 +11,6 @@
     <!-- OpenWeatherMap API Key -->
     <string name="weathermap_owm_api_key">0bd12493a774213e924f4bc670f98f39</string>
 
-    <!-- Connection Status -->
-    <string name="connect_000">Connection not found.\nPlease try again.</string>
-
     <!-- Menu Tab Labels -->
     <string name="tab_000">Today</string>
     <string name="tab_001">5 Days</string>
@@ -29,18 +26,28 @@
         <item>Warming up the mittens...</item>
     </string-array>
 
+    <!-- Search Bar Panel -->
+    <string name="searchBar_000">Enter a US town or city.</string>
+    <string name="searchBar_001">Please input a proper US\ntown or city name.</string>
+    <string name="searchBar_002">Search</string>
+
     <!-- Today's Weather Fragment -->
-    <string name="today_000">Enter a US town or city.</string>
-    <string name="today_001">Please input a proper US\ntown or city name.</string>
-    <string name="today_002">Search</string>
 
     <!-- 5-Days Weather Fragment -->
 
+    <!-- Connection Error Panel -->
+    <string name="connect_000">[ Connection Error ]</string>
+    <string name="connect_001">* Connection not found.\nPlease try again.</string>
+
+    <!-- Search Error Panel -->
+    <string name="search_000">[ Search Error ]</string>
+    <string name="search_001">* Could not find any results.\nPlease try again.</string>
+
     <!-- Options Fragment -->
     <string name="options_000">Title Screen</string>
+    <string name="options_000_on">Turn off to skip the title screen the\nnext time the application is launched.</string>
+    <string name="options_000_off">Turn on to view the title screen the\nnext time the application is launched.</string>
     <string name="options_001">Notifications</string>
-    <string name="options_002"></string>
-    <string name="options_003"></string>
 
     <string name="options_on">ON</string>
     <string name="options_off">OFF</string>

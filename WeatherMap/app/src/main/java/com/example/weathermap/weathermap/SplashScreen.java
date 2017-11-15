@@ -50,9 +50,6 @@ public class SplashScreen extends AppCompatActivity {
         }
         appJSONStorage.dataRead();
 
-        Toast.makeText(this, appJSONStorage.lastCitySearched + "\n" + appJSONStorage.lastCityID
-                + "\n" + appJSONStorage.titleScreenOn, Toast.LENGTH_SHORT).show();
-
         // Checks for the option of the Title Screen appearance
         if(!appJSONStorage.titleScreenOn) {
             // Heads to the Menu Tab Screen activity
