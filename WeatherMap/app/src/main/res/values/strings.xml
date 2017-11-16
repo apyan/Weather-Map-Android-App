@@ -32,8 +32,27 @@
     <string name="searchBar_002">Search</string>
 
     <!-- Today's Weather Fragment -->
+    <string name="today_000">City Name</string>
+    <string name="today_000a">CL</string>
+    <string name="today_001">Coordinates:</string>
+    <string name="today_002">Forecast:</string>
+    <string name="today_002a">Main</string>
+    <string name="today_002b">Description</string>
+    <string name="today_003">Temperature:</string>
+    <string name="today_004a">Minimum:</string>
+    <string name="today_004b">Pressure:</string>
+    <string name="today_005a">Maximum:</string>
+    <string name="today_005b">Humidity:</string>
+    <string name="today_006a">Wind Speed:</string>
+    <string name="today_006b">Cloudiness:</string>
+    <string name="today_007a">Sunrise:</string>
+    <string name="today_007b">Sunset:</string>
 
     <!-- 5-Days Weather Fragment -->
+
+    <!-- Welcome Panel -->
+    <string name="welcome_000">Hello There!</string>
+    <string name="welcome_001">Welcome to Weather Map!</string>
 
     <!-- Connection Error Panel -->
     <string name="connect_000">[ Connection Error ]</string>

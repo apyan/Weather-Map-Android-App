@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import com.example.weathermap.weathermap.AppFunctions.AppConnect;
 import com.example.weathermap.weathermap.AppFunctions.AppJSONStorage;
@@ -24,6 +25,7 @@ public class FragmentFiveWeather extends Fragment implements View.OnClickListene
 
     public Button button_00;
     public EditText edit_00;
+    public LinearLayout linear_00, linear_01, linear_02, linear_03, linear_04;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,6 +40,11 @@ public class FragmentFiveWeather extends Fragment implements View.OnClickListene
         // Set up UI elements
         button_00 = (Button) v.findViewById(R.id.search_button);
         edit_00 = (EditText) v.findViewById(R.id.search_edit);
+        linear_00 = (LinearLayout) v.findViewById(R.id.data_linear);
+        linear_01 = (LinearLayout) v.findViewById(R.id.welcome_linear);
+        linear_02 = (LinearLayout) v.findViewById(R.id.loading_linear);
+        linear_03 = (LinearLayout) v.findViewById(R.id.connectError_linear);
+        linear_04 = (LinearLayout) v.findViewById(R.id.searchError_linear);
 
         // Button onClick Inputs
         button_00.setOnClickListener(this);

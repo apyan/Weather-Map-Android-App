@@ -52,6 +52,31 @@
                 android:orientation="vertical">
             </LinearLayout>
 
+            <!-- Welcome Panel -->
+            <LinearLayout
+                android:id="@+id/welcome_linear"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/welcome_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:text="@string/welcome_000"/>
+
+                <TextView
+                    android:id="@+id/welcome_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
+                    android:text="@string/welcome_001"/>
+
+            </LinearLayout>
+
             <!-- Loading Screen Panel -->
             <LinearLayout
                 android:id="@+id/loading_linear"
