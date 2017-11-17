@@ -31,6 +31,7 @@ public class AppJSONStorage {
     public String lastCitySearched = "";
     public int lastCityID = 0;
     public boolean titleScreenOn = true;
+    public boolean temperatureVar = true;
 
     // Constructor
     // Ex. "user-data.json"
@@ -68,6 +69,7 @@ public class AppJSONStorage {
             lastCitySearched = jsonObject.getString("lastCitySearched");
             lastCityID = jsonObject.getInt("lastCityID");
             titleScreenOn = jsonObject.getBoolean("titleScreenOn");
+            temperatureVar = jsonObject.getBoolean("temperatureVar");
 
         } catch (final JSONException e) {
             e.getMessage();
@@ -108,6 +110,9 @@ public class AppJSONStorage {
 
         // For the Title Screen option
         writer = writer + ",\r\n\"titleScreenOn\" : " + titleScreenOn;
+
+        // For the Temperature Variation option
+        writer = writer + ",\r\n\"temperatureVar\" : " + temperatureVar;
 
         // End the JSON file construction
         writer = writer + "}";

@@ -22,7 +22,7 @@ import org.json.JSONObject;
 import java.util.Random;
 
 /**
- * The asynchronous task is used by the splash screen.
+ * The asynchronous task is used by the Today tab.
  * This is for loading the city data from the local JSON file.
  */
 
@@ -227,13 +227,7 @@ public class AsyncTodaySearchTask extends AsyncTask<String, String, String> {
         text_00.setText(cityTodayObject.cityName);
         text_01.setText(cityTodayObject.sysCountry);
         text_02.setText(eContext.getString(R.string.today_001) + " " +
-                cityTodayObject.coordLongitude + ", " + cityTodayObject.coordLatitude);
-        text_03.setText(eContext.getString(R.string.today_003) + " " +
-                cityTodayObject.kelvinToFahrenheit(cityTodayObject.mainTemp) + "\u00b0 F");
-        text_04.setText(eContext.getString(R.string.today_004a) + " " +
-                cityTodayObject.kelvinToFahrenheit(cityTodayObject.mainTemp_Min) + "\u00b0 F");
-        text_05.setText(eContext.getString(R.string.today_005a) + " " +
-                cityTodayObject.kelvinToFahrenheit(cityTodayObject.mainTemp_Max) + "\u00b0 F");
+                cityTodayObject.coordLatitude + ", " + cityTodayObject.coordLongitude);
         text_06.setText(eContext.getString(R.string.today_004b) + " " +
                 cityTodayObject.mainPressure + " hPa");
         text_07.setText(eContext.getString(R.string.today_005b) + " " +
@@ -247,7 +241,32 @@ public class AsyncTodaySearchTask extends AsyncTask<String, String, String> {
         text_11.setText(eContext.getString(R.string.today_007b) + " " +
                 cityTodayObject.epochToDate(cityTodayObject.sysSunset));
         linear_03.removeAllViews();
-        
+
+        // Base of Temperature preference
+        if(appJSONStorage.temperatureVar) {
+            // To Fahrenheit degrees labeling
+            text_03.setText(eContext.getString(R.string.today_003) + " " +
+                    cityTodayObject.kelvinToFahrenheit(cityTodayObject.mainTemp) +
+                    eContext.getString(R.string.options_on_a));
+            text_04.setText(eContext.getString(R.string.today_004a) + " " +
+                    cityTodayObject.kelvinToFahrenheit(cityTodayObject.mainTemp_Min) +
+                    eContext.getString(R.string.options_on_a));
+            text_05.setText(eContext.getString(R.string.today_005a) + " " +
+                    cityTodayObject.kelvinToFahrenheit(cityTodayObject.mainTemp_Max) +
+                    eContext.getString(R.string.options_on_a));
+        } else {
+            // To Celsius degrees labeling
+            text_03.setText(eContext.getString(R.string.today_003) + " " +
+                    cityTodayObject.kelvinToCelsius(cityTodayObject.mainTemp) +
+                    eContext.getString(R.string.options_off_a));
+            text_04.setText(eContext.getString(R.string.today_004a) + " " +
+                    cityTodayObject.kelvinToCelsius(cityTodayObject.mainTemp_Min) +
+                    eContext.getString(R.string.options_off_a));
+            text_05.setText(eContext.getString(R.string.today_005a) + " " +
+                    cityTodayObject.kelvinToCelsius(cityTodayObject.mainTemp_Max) +
+                    eContext.getString(R.string.options_off_a));
+        }
+
         // Populate the forecast section
         for(int index = 0; index < cityTodayObject.weatherID.size(); index++) {
 

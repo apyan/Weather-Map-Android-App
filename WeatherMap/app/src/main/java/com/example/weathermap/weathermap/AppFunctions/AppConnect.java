@@ -11,7 +11,7 @@ import android.net.NetworkInfo;
 public class AppConnect {
 
     // Variables for the class
-    Context eContext;
+    public Context eContext;
 
     // Constructor
     public AppConnect(Context context) {

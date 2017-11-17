@@ -23,9 +23,9 @@ import java.net.HttpURLConnection;
 public class AppGraphics {
 
     // Graphic Variables
-    int screenHeight;
-    int screenWidth;
-    Context context;
+    public int screenHeight;
+    public int screenWidth;
+    public Context context;
 
     // Constructor
     public AppGraphics (Context eContext) {

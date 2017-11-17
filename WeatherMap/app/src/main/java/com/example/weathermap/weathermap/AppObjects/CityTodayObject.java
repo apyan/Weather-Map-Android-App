@@ -55,10 +55,18 @@ public class CityTodayObject {
 
     // Convert Kelvin to Fahrenheit
     public double kelvinToFahrenheit(double kDegrees) {
-        double fah = (((kDegrees - 273) * (9/5)) + 32);
+        double fah = (((kDegrees - 273.15) * (9/5)) + 32);
         // For two decimal places
         fah = Math.round(fah * 100.0) / 100.0;
         return fah;
+    }
+
+    // Convert Kelvin to Celsius
+    public double kelvinToCelsius(double kDegrees) {
+        double cel = (kDegrees - 273.15);
+        // For two decimal places
+        cel = Math.round(cel * 100.0) / 100.0;
+        return cel;
     }
 
     // Convert Epoch Number to Human Time

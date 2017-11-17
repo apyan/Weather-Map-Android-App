@@ -45,6 +45,37 @@
                 android:textSize="15sp"
                 android:text="@string/options_000_on"/>
 
+            <!-- Temperature preference -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <Switch
+                    android:id="@+id/optionSwitch_01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/options_001"
+                    android:textColor="#000000"
+                    android:textOff="@string/options_off_a"
+                    android:textOn="@string/options_on_a"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_alignParentRight="true"
+                    android:textSize="27sp" />
+
+            </RelativeLayout>
+
+            <!-- Temperature description -->
+            <TextView
+                android:id="@+id/description_01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:textSize="15sp"
+                android:text="@string/options_001_on"/>
+
             <!-- Credits banner -->
             <LinearLayout
                 android:layout_width="wrap_content"

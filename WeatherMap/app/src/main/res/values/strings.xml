@@ -35,7 +35,7 @@
     <string name="today_000">City Name</string>
     <string name="today_000a">CL</string>
     <string name="today_001">Coordinates:</string>
-    <string name="today_002">Forecast:</string>
+    <string name="today_002">Weather:</string>
     <string name="today_002a">Main</string>
     <string name="today_002b">Description</string>
     <string name="today_003">Temperature:</string>
@@ -66,10 +66,15 @@
     <string name="options_000">Title Screen</string>
     <string name="options_000_on">Turn off to skip the title screen the\nnext time the application is launched.</string>
     <string name="options_000_off">Turn on to view the title screen the\nnext time the application is launched.</string>
-    <string name="options_001">Notifications</string>
+    <string name="options_001">Temperature</string>
+    <string name="options_001_on">Switch to the Celsius degree units the\nnext time a weather data is being searched.</string>
+    <string name="options_001_off">Switch to the Fahrenheit degree units the\nnext time a weather data is being searched.</string>
+    <string name="options_002">Notifications</string>
 
     <string name="options_on">ON</string>
     <string name="options_off">OFF</string>
+    <string name="options_on_a">\u00B0F</string>
+    <string name="options_off_a">\u00B0C</string>
 
     <!-- Credits -->
     <string name="credits_000">Weather Map - US Region Version</string>
