@@ -4,15 +4,13 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.weathermap.weathermap.AppObjects.CityTodayObject;
 import com.example.weathermap.weathermap.AppObjects.HttpObject;
-import com.example.weathermap.weathermap.AppObjects.TodayDataCustomView;
+import com.example.weathermap.weathermap.AppObjects.WeatherCustomView;
 import com.example.weathermap.weathermap.R;
 
 import org.json.JSONArray;
@@ -113,8 +111,6 @@ public class AsyncTodaySearchTask extends AsyncTask<String, String, String> {
                 // Obtain as JSON object
                 JSONObject jsonObject = new JSONObject(jsonString);
 
-                Log.d("READER", "RESULT: " + jsonString);
-
                 // Get values from the 'coord' node
                 JSONObject coord = jsonObject.getJSONObject("coord");
                 cityTodayObject.coordLongitude = coord.getDouble("lon");
@@ -122,7 +118,7 @@ public class AsyncTodaySearchTask extends AsyncTask<String, String, String> {
 
                 // Getting JSON Array of 'weather'
                 JSONArray weather = jsonObject.getJSONArray("weather");
-                for (int index = 0; index < weather.length(); index++) {
+                for(int index = 0; index < weather.length(); index++) {
                     // Obtaining the weather data from each node
                     JSONObject weatherData = weather.getJSONObject(index);
                     cityTodayObject.weatherID.add(weatherData.getInt("id"));
@@ -271,13 +267,13 @@ public class AsyncTodaySearchTask extends AsyncTask<String, String, String> {
         for(int index = 0; index < cityTodayObject.weatherID.size(); index++) {
 
             // For the data of the Forecast
-            TodayDataCustomView todayDataCustomView = new TodayDataCustomView(eContext);
-            todayDataCustomView.iconPicture.setImageBitmap(cityTodayObject.weatherIconFormed.get(index));
-            todayDataCustomView.text_00.setText(cityTodayObject.weatherMain.get(index));
+            WeatherCustomView weatherCustomView = new WeatherCustomView(eContext);
+            weatherCustomView.iconPicture.setImageBitmap(cityTodayObject.weatherIconFormed.get(index));
+            weatherCustomView.text_00.setText(cityTodayObject.weatherMain.get(index));
             String modDescription = cityTodayObject.weatherDescription.get(index);
-            todayDataCustomView.text_01.setText(modDescription.substring(0, 1).toUpperCase()
+            weatherCustomView.text_01.setText(modDescription.substring(0, 1).toUpperCase()
                     + modDescription.substring(1));
-            linear_03.addView(todayDataCustomView);
+            linear_03.addView(weatherCustomView);
         }
     }
 }

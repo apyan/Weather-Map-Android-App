@@ -49,6 +49,7 @@
     <string name="today_007b">Sunset:</string>
 
     <!-- 5-Days Weather Fragment -->
+    <string name="data_time">GMT</string>
 
     <!-- Welcome Panel -->
     <string name="welcome_000">Hello There!</string>

@@ -13,7 +13,7 @@ import com.example.weathermap.weathermap.R;
  * A custom view for the forecast label for Today
  */
 
-public class TodayDataCustomView extends LinearLayout {
+public class WeatherCustomView extends LinearLayout {
 
     // Variables for the Custom View
     public View parentView;
@@ -21,18 +21,18 @@ public class TodayDataCustomView extends LinearLayout {
     public TextView text_00, text_01;
 
     // Constructor
-    public TodayDataCustomView(Context context) {
+    public WeatherCustomView(Context context) {
         super(context);
         init(context);
     }
 
-    public TodayDataCustomView(Context context, AttributeSet attrs) {
+    public WeatherCustomView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
     private void init(Context context) {
-        parentView = inflate(context, R.layout.custom_today_data, this);
+        parentView = inflate(context, R.layout.custom_weather_data, this);
 
         // UI elements
         iconPicture = (ImageView) parentView.findViewById(R.id.data_icon);

@@ -46,13 +46,6 @@ public class CityTodayObject {
         weatherIconFormed = new ArrayList<>();
     }
 
-    // Returns the results for testing purposes
-    public String viewVariables(){
-        return coordLongitude + ", " + coordLatitude + "\n" +
-                errorCode + ": " + cityName + "," + sysCountry + "\n" +
-                cityID + ": " + weatherDescription;
-    }
-
     // Convert Kelvin to Fahrenheit
     public double kelvinToFahrenheit(double kDegrees) {
         double fah = (((kDegrees - 273.15) * (9/5)) + 32);
