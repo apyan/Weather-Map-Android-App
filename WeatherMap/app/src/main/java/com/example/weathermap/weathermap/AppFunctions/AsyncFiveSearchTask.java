@@ -10,6 +10,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.weathermap.weathermap.AppObjects.CityFiveDaysObject;
+import com.example.weathermap.weathermap.AppObjects.CustomViewFiveDays;
+import com.example.weathermap.weathermap.AppObjects.CustomViewTimeData;
+import com.example.weathermap.weathermap.AppObjects.CustomViewWeatherDesc;
 import com.example.weathermap.weathermap.AppObjects.HttpObject;
 import com.example.weathermap.weathermap.AppObjects.WeatherDataNode;
 import com.example.weathermap.weathermap.R;
@@ -36,10 +39,11 @@ public class AsyncFiveSearchTask extends AsyncTask<String, String, String> {
     public String urlImageLink;
     public CityFiveDaysObject cityFiveDaysObject;
     public Bitmap downloadedIcon;
+    public String [] month_names;
 
     // UI Variables
     public TextView loading_text;
-    public LinearLayout linear_00, linear_01, linear_02, linear_03;
+    public LinearLayout linear_00, linear_01, linear_02;
 
     // Randomized Loading Quotes
     public String [] loadingMessages;
@@ -59,6 +63,7 @@ public class AsyncFiveSearchTask extends AsyncTask<String, String, String> {
         // Load Messages
         Resources res = context.getResources();
         loadingMessages = res.getStringArray(R.array.loading_messages);
+        month_names = res.getStringArray(R.array.month_names);
     }
 
     @Override
@@ -205,5 +210,129 @@ public class AsyncFiveSearchTask extends AsyncTask<String, String, String> {
     // Fill the data table panel up
     public void populateDataTable() {
 
+        // Create the main UI shell
+        CustomViewFiveDays customViewFiveDays = new CustomViewFiveDays(eContext);
+        customViewFiveDays.text_00.setText(cityFiveDaysObject.cityName);
+        customViewFiveDays.text_01.setText(cityFiveDaysObject.cityCountry);
+        customViewFiveDays.text_02.setText(eContext.getString(R.string.today_001) + " " +
+                cityFiveDaysObject.coordLatitude + ", " + cityFiveDaysObject.coordLongitude);
+
+        // Collect the dates of five
+        int counter = 0;
+        String[] date_keeper = {"", "", "", "", ""};
+        date_keeper[0] = cityFiveDaysObject.weatherList.get(counter).dt_txt;
+        date_keeper[0] = date_keeper[0].substring(0, date_keeper[0].indexOf(" ")).trim();
+
+        // Set up date banner for Day 1
+        customViewFiveDays.date_01.setText(month_names[Integer.parseInt(date_keeper[0].substring(5, 7))] + " " +
+                date_keeper[0].substring(date_keeper[0].lastIndexOf("-") + 1) + ", " +
+                date_keeper[0].substring(0, 4));
+        for(int index = 0; index < cityFiveDaysObject.weatherList.size(); index++){
+            // Seeks for a new date of next day
+            if(!cityFiveDaysObject.weatherList.get(index).dt_txt.contains(date_keeper[counter]) &&
+                    ((counter + 1) <= 4)) {
+                date_keeper[counter + 1] = cityFiveDaysObject.weatherList.get(index).dt_txt;
+                date_keeper[counter + 1] = date_keeper[counter + 1].substring(0,
+                        date_keeper[counter + 1].indexOf(" ")).trim();
+                counter++;
+            }
+            if(counter >= 4) break;
+        }
+        // Set up date banner for Day 2
+        customViewFiveDays.date_02.setText(month_names[Integer.parseInt(date_keeper[1].substring(5, 7))] + " " +
+                date_keeper[1].substring(date_keeper[1].lastIndexOf("-") + 1) + ", " +
+                date_keeper[1].substring(0, 4));
+        // Set up date banner for Day 3
+        customViewFiveDays.date_03.setText(month_names[Integer.parseInt(date_keeper[2].substring(5, 7))] + " " +
+                date_keeper[2].substring(date_keeper[2].lastIndexOf("-") + 1) + ", " +
+                date_keeper[2].substring(0, 4));
+        // Set up date banner for Day 4
+        customViewFiveDays.date_04.setText(month_names[Integer.parseInt(date_keeper[3].substring(5, 7))] + " " +
+                date_keeper[3].substring(date_keeper[3].lastIndexOf("-") + 1) + ", " +
+                date_keeper[3].substring(0, 4));
+        // Set up date banner for Day 5
+        customViewFiveDays.date_05.setText(month_names[Integer.parseInt(date_keeper[4].substring(5, 7))] + " " +
+                date_keeper[4].substring(date_keeper[4].lastIndexOf("-") + 1) + ", " +
+                date_keeper[4].substring(0, 4));
+
+        // To distribute the weather contents to rightful date columns
+        for(int index = 0; index < cityFiveDaysObject.weatherList.size(); index++) {
+            CustomViewTimeData customViewTimeData = new CustomViewTimeData(eContext);
+            // Base of Temperature preference
+            if(appJSONStorage.temperatureVar) {
+                // To Fahrenheit degrees labeling
+                customViewTimeData.text_01.setText(
+                        cityFiveDaysObject.kelvinToFahrenheit(cityFiveDaysObject.weatherList.get(index).mainTemp)
+                                + eContext.getString(R.string.measure_000a));
+                customViewTimeData.text_02.setText(eContext.getString(R.string.fiveDays_003a) + " " +
+                        cityFiveDaysObject.kelvinToFahrenheit(cityFiveDaysObject.weatherList.get(index).mainTemp_Min)
+                        + eContext.getString(R.string.measure_000a));
+                customViewTimeData.text_03.setText(eContext.getString(R.string.fiveDays_003b) + " " +
+                        cityFiveDaysObject.kelvinToFahrenheit(cityFiveDaysObject.weatherList.get(index).mainTemp_Min)
+                        + eContext.getString(R.string.measure_000a));
+            } else {
+                // To Celsius degrees labeling
+                customViewTimeData.text_01.setText(
+                        cityFiveDaysObject.kelvinToCelsius(cityFiveDaysObject.weatherList.get(index).mainTemp)
+                                + eContext.getString(R.string.measure_000b));
+                customViewTimeData.text_02.setText(eContext.getString(R.string.fiveDays_003a) + " " +
+                        cityFiveDaysObject.kelvinToFahrenheit(cityFiveDaysObject.weatherList.get(index).mainTemp_Min)
+                        + eContext.getString(R.string.measure_000b));
+                customViewTimeData.text_03.setText(eContext.getString(R.string.fiveDays_003b) + " " +
+                        cityFiveDaysObject.kelvinToFahrenheit(cityFiveDaysObject.weatherList.get(index).mainTemp_Min)
+                        + eContext.getString(R.string.measure_000b));
+            }
+            customViewTimeData.text_00.setText(cityFiveDaysObject.weatherList.get(index).dt_txt.substring(
+                    cityFiveDaysObject.weatherList.get(index).dt_txt.indexOf(" ")).trim()
+                    + " " + eContext.getString(R.string.data_time));
+            customViewTimeData.text_04.setText(eContext.getString(R.string.fiveDays_004a) + " "
+                    + cityFiveDaysObject.weatherList.get(index).mainPressure + " "
+                    + eContext.getString(R.string.measure_001a));
+            customViewTimeData.text_05.setText(eContext.getString(R.string.fiveDays_004b) + " "
+                    + cityFiveDaysObject.weatherList.get(index).mainHumidity
+                    + eContext.getString(R.string.measure_002a));
+            customViewTimeData.text_06.setText(eContext.getString(R.string.fiveDays_005a) + " "
+                    + cityFiveDaysObject.weatherList.get(index).cloudsAll
+                    + eContext.getString(R.string.measure_002a));
+            customViewTimeData.text_07.setText(eContext.getString(R.string.fiveDays_005b) + " "
+                    + cityFiveDaysObject.weatherList.get(index).windSpeed + " "
+                    + eContext.getString(R.string.measure_003a));
+
+            // Adding the Weather Icons and Description
+            for(int index_0 = 0; index_0 < cityFiveDaysObject.weatherList.get(index).weatherMain.size(); index_0++){
+                CustomViewWeatherDesc customViewWeatherDesc = new CustomViewWeatherDesc(eContext);
+                customViewWeatherDesc.text_00.setText(
+                        cityFiveDaysObject.weatherList.get(index).weatherMain.get(index_0));
+                String splicer = cityFiveDaysObject.weatherList.get(index).weatherDescription.get(index_0);
+                customViewWeatherDesc.text_01.setText(splicer.substring(0, 1).toUpperCase()
+                                + splicer.substring(1));
+                customViewWeatherDesc.image_00.setImageBitmap(
+                        cityFiveDaysObject.weatherList.get(index).weatherIconFormed.get(index_0));
+                customViewTimeData.weather_plate.addView(customViewWeatherDesc);
+            }
+
+            // For Day 1
+            if(cityFiveDaysObject.weatherList.get(index).dt_txt.contains(date_keeper[0])) {
+                customViewFiveDays.day_1.addView(customViewTimeData);
+            }
+            // For Day 2
+            if(cityFiveDaysObject.weatherList.get(index).dt_txt.contains(date_keeper[1])) {
+                customViewFiveDays.day_2.addView(customViewTimeData);
+            }
+            // For Day 3
+            if(cityFiveDaysObject.weatherList.get(index).dt_txt.contains(date_keeper[2])) {
+                customViewFiveDays.day_3.addView(customViewTimeData);
+            }
+            // For Day 4
+            if(cityFiveDaysObject.weatherList.get(index).dt_txt.contains(date_keeper[3])) {
+                customViewFiveDays.day_4.addView(customViewTimeData);
+            }
+            // For Day 5
+            if(cityFiveDaysObject.weatherList.get(index).dt_txt.contains(date_keeper[4])) {
+                customViewFiveDays.day_5.addView(customViewTimeData);
+            }
+        }
+
+        linear_00.addView(customViewFiveDays);
     }
 }

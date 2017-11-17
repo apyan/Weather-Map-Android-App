@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.weathermap.weathermap.AppObjects.CityTodayObject;
 import com.example.weathermap.weathermap.AppObjects.HttpObject;
-import com.example.weathermap.weathermap.AppObjects.WeatherCustomView;
+import com.example.weathermap.weathermap.AppObjects.CustomViewWeather;
 import com.example.weathermap.weathermap.R;
 
 import org.json.JSONArray;
@@ -225,13 +225,13 @@ public class AsyncTodaySearchTask extends AsyncTask<String, String, String> {
         text_02.setText(eContext.getString(R.string.today_001) + " " +
                 cityTodayObject.coordLatitude + ", " + cityTodayObject.coordLongitude);
         text_06.setText(eContext.getString(R.string.today_004b) + " " +
-                cityTodayObject.mainPressure + " hPa");
+                cityTodayObject.mainPressure + " " + eContext.getString(R.string.measure_001a));
         text_07.setText(eContext.getString(R.string.today_005b) + " " +
-                cityTodayObject.mainHumidity + "%");
+                cityTodayObject.mainHumidity + eContext.getString(R.string.measure_002a));
         text_08.setText(eContext.getString(R.string.today_006a) + " " +
-                cityTodayObject.windSpeed + " meter/sec");
+                cityTodayObject.windSpeed + " " + eContext.getString(R.string.measure_003a));
         text_09.setText(eContext.getString(R.string.today_006b) + " " +
-                cityTodayObject.cloudsAll + "%");
+                cityTodayObject.cloudsAll + eContext.getString(R.string.measure_002a));
         text_10.setText(eContext.getString(R.string.today_007a) + " " +
                 cityTodayObject.epochToDate(cityTodayObject.sysSunrise));
         text_11.setText(eContext.getString(R.string.today_007b) + " " +
@@ -243,37 +243,37 @@ public class AsyncTodaySearchTask extends AsyncTask<String, String, String> {
             // To Fahrenheit degrees labeling
             text_03.setText(eContext.getString(R.string.today_003) + " " +
                     cityTodayObject.kelvinToFahrenheit(cityTodayObject.mainTemp) +
-                    eContext.getString(R.string.options_on_a));
+                    eContext.getString(R.string.measure_000a));
             text_04.setText(eContext.getString(R.string.today_004a) + " " +
                     cityTodayObject.kelvinToFahrenheit(cityTodayObject.mainTemp_Min) +
-                    eContext.getString(R.string.options_on_a));
+                    eContext.getString(R.string.measure_000a));
             text_05.setText(eContext.getString(R.string.today_005a) + " " +
                     cityTodayObject.kelvinToFahrenheit(cityTodayObject.mainTemp_Max) +
-                    eContext.getString(R.string.options_on_a));
+                    eContext.getString(R.string.measure_000a));
         } else {
             // To Celsius degrees labeling
             text_03.setText(eContext.getString(R.string.today_003) + " " +
                     cityTodayObject.kelvinToCelsius(cityTodayObject.mainTemp) +
-                    eContext.getString(R.string.options_off_a));
+                    eContext.getString(R.string.measure_000b));
             text_04.setText(eContext.getString(R.string.today_004a) + " " +
                     cityTodayObject.kelvinToCelsius(cityTodayObject.mainTemp_Min) +
-                    eContext.getString(R.string.options_off_a));
+                    eContext.getString(R.string.measure_000b));
             text_05.setText(eContext.getString(R.string.today_005a) + " " +
                     cityTodayObject.kelvinToCelsius(cityTodayObject.mainTemp_Max) +
-                    eContext.getString(R.string.options_off_a));
+                    eContext.getString(R.string.measure_000b));
         }
 
         // Populate the forecast section
         for(int index = 0; index < cityTodayObject.weatherID.size(); index++) {
 
             // For the data of the Forecast
-            WeatherCustomView weatherCustomView = new WeatherCustomView(eContext);
-            weatherCustomView.iconPicture.setImageBitmap(cityTodayObject.weatherIconFormed.get(index));
-            weatherCustomView.text_00.setText(cityTodayObject.weatherMain.get(index));
+            CustomViewWeather customViewWeather = new CustomViewWeather(eContext);
+            customViewWeather.iconPicture.setImageBitmap(cityTodayObject.weatherIconFormed.get(index));
+            customViewWeather.text_00.setText(cityTodayObject.weatherMain.get(index));
             String modDescription = cityTodayObject.weatherDescription.get(index);
-            weatherCustomView.text_01.setText(modDescription.substring(0, 1).toUpperCase()
+            customViewWeather.text_01.setText(modDescription.substring(0, 1).toUpperCase()
                     + modDescription.substring(1));
-            linear_03.addView(weatherCustomView);
+            linear_03.addView(customViewWeather);
         }
     }
 }

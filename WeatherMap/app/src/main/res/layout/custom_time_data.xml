@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Line Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#3F51B5"/>
+
+    <TextView
+        android:id="@+id/time_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fiveDays_001"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="5dp"/>
+
+    <LinearLayout
+        android:id="@+id/weather_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/time_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fiveDays_002"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:layout_marginLeft="15dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/time_minTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fiveDays_003a"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:id="@+id/time_maxTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fiveDays_003b"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:id="@+id/time_cloud"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fiveDays_005a"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:id="@+id/time_pressure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fiveDays_004a"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:id="@+id/time_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fiveDays_004b"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:id="@+id/time_wind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fiveDays_005b"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

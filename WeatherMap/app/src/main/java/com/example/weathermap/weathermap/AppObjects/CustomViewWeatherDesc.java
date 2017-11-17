@@ -10,33 +10,33 @@ import android.widget.TextView;
 import com.example.weathermap.weathermap.R;
 
 /**
- * A custom view for the forecast label for Today
+ * A custom view for each weather description
  */
 
-public class WeatherCustomView extends LinearLayout {
+public class CustomViewWeatherDesc  extends LinearLayout {
 
     // Variables for the Custom View
     public View parentView;
-    public ImageView iconPicture;
+    public ImageView image_00;
     public TextView text_00, text_01;
 
     // Constructor
-    public WeatherCustomView(Context context) {
+    public CustomViewWeatherDesc(Context context) {
         super(context);
         init(context);
     }
 
-    public WeatherCustomView(Context context, AttributeSet attrs) {
+    public CustomViewWeatherDesc(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
     private void init(Context context) {
-        parentView = inflate(context, R.layout.custom_weather_data, this);
+        parentView = inflate(context, R.layout.custom_weather_desc, this);
 
         // UI elements
-        iconPicture = (ImageView) parentView.findViewById(R.id.data_icon);
-        text_00 = (TextView) parentView.findViewById(R.id.text_00);
-        text_01 = (TextView) parentView.findViewById(R.id.text_01);
+        text_00 = (TextView) parentView.findViewById(R.id.desc_main);
+        text_01 = (TextView) parentView.findViewById(R.id.desc_desc);
+        image_00 = (ImageView) parentView.findViewById(R.id.image_icon);
     }
 }

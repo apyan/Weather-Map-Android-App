@@ -50,6 +50,31 @@
 
     <!-- 5-Days Weather Fragment -->
     <string name="data_time">GMT</string>
+    <string name="fiveDays_000">Date/Date/Date</string>
+    <string name="fiveDays_001">Timestamp</string>
+    <string name="fiveDays_002">Temperature</string>
+    <string name="fiveDays_003a">Min.:</string>
+    <string name="fiveDays_003b">Max.:</string>
+    <string name="fiveDays_004a">Press.:</string>
+    <string name="fiveDays_004b">Humid.:</string>
+    <string name="fiveDays_005a">Cloud:</string>
+    <string name="fiveDays_005b">Wind:</string>
+    <string name="fiveDays_006">Holder</string>
+    <string-array name="month_names">
+        <item></item>
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
 
     <!-- Welcome Panel -->
     <string name="welcome_000">Hello There!</string>
@@ -76,6 +101,13 @@
     <string name="options_off">OFF</string>
     <string name="options_on_a">\u00B0F</string>
     <string name="options_off_a">\u00B0C</string>
+
+    <!-- Measurements -->
+    <string name="measure_000a">\u00B0F</string>
+    <string name="measure_000b">\u00B0C</string>
+    <string name="measure_001a">hPa</string>
+    <string name="measure_002a">%</string>
+    <string name="measure_003a">meter/sec.</string>
 
     <!-- Credits -->
     <string name="credits_000">Weather Map - US Region Version</string>
