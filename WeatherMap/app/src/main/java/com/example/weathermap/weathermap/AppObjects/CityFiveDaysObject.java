@@ -12,7 +12,7 @@ import java.util.Date;
 public class CityFiveDaysObject {
 
     // Variables of the object
-    public String errorCode;
+    public String errorCode = "";
     public ArrayList<WeatherDataNode> weatherList;
     public int cityId;
     public String cityName;

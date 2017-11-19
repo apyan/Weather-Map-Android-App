@@ -126,7 +126,7 @@ public class FragmentFiveWeather extends Fragment implements View.OnClickListene
                         // AsyncTask process on retrieving information
                         asyncFiveSearchTask = new AsyncFiveSearchTask(getContext(),
                                 text_00, linear_00, linear_02, linear_04);
-                        asyncFiveSearchTask.execute(appJSONStorage.lastCitySearched);
+                        asyncFiveSearchTask.execute(searchQuery);
                         appJSONStorage.dataRead();
                     }
                 }

@@ -36,7 +36,7 @@
         android:text="@string/fiveDays_002"
         android:textColor="#000000"
         android:textSize="18sp"
-        android:layout_marginLeft="15dp"/>
+        android:layout_marginLeft="30dp"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -55,7 +55,7 @@
                 android:text="@string/fiveDays_003a"
                 android:textColor="#000000"
                 android:textSize="15sp"
-                android:layout_marginLeft="15dp"/>
+                android:layout_marginLeft="30dp"/>
 
             <TextView
                 android:id="@+id/time_maxTemp"
@@ -64,7 +64,7 @@
                 android:text="@string/fiveDays_003b"
                 android:textColor="#000000"
                 android:textSize="15sp"
-                android:layout_marginLeft="15dp"/>
+                android:layout_marginLeft="30dp"/>
 
             <TextView
                 android:id="@+id/time_cloud"
@@ -73,7 +73,7 @@
                 android:text="@string/fiveDays_005a"
                 android:textColor="#000000"
                 android:textSize="15sp"
-                android:layout_marginLeft="15dp"/>
+                android:layout_marginLeft="30dp"/>
 
             <TextView
                 android:id="@+id/time_pressure"
@@ -82,7 +82,7 @@
                 android:text="@string/fiveDays_004a"
                 android:textColor="#000000"
                 android:textSize="15sp"
-                android:layout_marginLeft="15dp"/>
+                android:layout_marginLeft="30dp"/>
 
             <TextView
                 android:id="@+id/time_humidity"
@@ -91,7 +91,7 @@
                 android:text="@string/fiveDays_004b"
                 android:textColor="#000000"
                 android:textSize="15sp"
-                android:layout_marginLeft="15dp"/>
+                android:layout_marginLeft="30dp"/>
 
             <TextView
                 android:id="@+id/time_wind"
@@ -101,7 +101,7 @@
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:layout_marginBottom="5dp"
-                android:layout_marginLeft="15dp"/>
+                android:layout_marginLeft="30dp"/>
 
         </LinearLayout>
     </LinearLayout>
