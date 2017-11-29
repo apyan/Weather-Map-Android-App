@@ -143,6 +143,7 @@ public class FragmentTodayWeather extends Fragment implements View.OnClickListen
                         linear_04.setVisibility(View.GONE);
                     } else {
                         linear_03.setVisibility(View.GONE);
+                        appJSONStorage.dataRead();
 
                         // AsyncTask process on retrieving information
                         asyncTodaySearchTask = new AsyncTodaySearchTask(getContext(),

@@ -122,6 +122,7 @@ public class FragmentFiveWeather extends Fragment implements View.OnClickListene
                         linear_04.setVisibility(View.GONE);
                     } else {
                         linear_03.setVisibility(View.GONE);
+                        appJSONStorage.dataRead();
 
                         // AsyncTask process on retrieving information
                         asyncFiveSearchTask = new AsyncFiveSearchTask(getContext(),
